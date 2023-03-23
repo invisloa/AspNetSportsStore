@@ -1,6 +1,12 @@
-﻿namespace SportsStore.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SportsStore.Models
 {
-	public class StoreDbContext
+	public class StoreDbContext : DbContext
 	{
+		public StoreDbContext(DbContextOptions<StoreDbContext> options)
+		: base(options) { }
+		public DbSet<Product> Products => Set<Product>();
 	}
+
 }
